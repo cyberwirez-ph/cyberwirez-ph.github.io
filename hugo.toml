@@ -13,7 +13,6 @@ theme = "mana"
   description = "A Philippine Cybersecurity Community"
   footerText = "© 2026 cyberwirez. Built with Hugo and Mana theme"
   heroTitleLine1 = "cyberwirez"
-  heroTitleLine2 = "we crack it we own it"
 
   [params.avatar]
     [params.avatar.home]
