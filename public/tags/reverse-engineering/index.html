@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en-us" class="h-full">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="en-us">
+<meta name="theme-color" content="#BD5FFF">
+<script>
+  
+  (function () {
+    const storedTheme = localStorage.getItem("theme");
+    const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+    const theme = storedTheme || (systemPrefersLight ? "light" : "dark");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+  
+  (function(){var t=sessionStorage.getItem('mana_pt');if(t){document.documentElement.setAttribute('data-page-enter',t);sessionStorage.removeItem('mana_pt');}})();
+  
+  window.MANA_SEARCH_INDEX_URL = '\/index.json';
+  
+  window.MANA_LANG_PREFIXES = ['en'];
+</script>
+<title>Reverse-Engineering | cyberwirez</title>
+<meta
+  name="description"
+  content="
+    
+  
+  ">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tags/reverse-engineering/">
+
+
+<link rel="alternate" hreflang="en-us" href="http://localhost:1313/tags/reverse-engineering/"><link rel="alternate" hreflang="x-default" href="http://localhost:1313/tags/reverse-engineering/">
+
+
+<meta name="robots" content="index, follow">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_us">
+<meta property="og:title" content="Reverse-Engineering | cyberwirez">
+<meta property="og:description" content="">
+<meta property="og:url" content="http://localhost:1313/tags/reverse-engineering/">
+<meta property="og:site_name" content="cyberwirez">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Reverse-Engineering | cyberwirez">
+<meta name="twitter:description" content="">
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+  media="print"
+  onload="this.media='all'">
+<noscript>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+</noscript>
+
+<link rel="stylesheet" href="/css/theme.min.29a2f04a9f41258e6c40c77a2b2be43ac8a3a9805c65165860d8b8ec5c442050.css">
+
+
+  <link
+    rel="stylesheet"
+    href="/css/syntax-dark.min.b01037e5609e6260b74d6fcdd6d5131e8dcbc4d46d6ef4bfbe5a60bdfc1a9f30.css"
+    id="syntax-dark-theme"
+    class="syntax-theme">
+  <link
+    rel="stylesheet"
+    href="/css/syntax-light.min.9602bc2fcef52b4c62e05eae14b48ba428e114f116e993e504d83ed5a3aeda98.css"
+    id="syntax-light-theme"
+    class="syntax-theme"
+    disabled><script>
+  
+  (function () {
+    const storedTheme = localStorage.getItem("theme");
+    const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+    const theme = storedTheme || (systemPrefersLight ? "light" : "dark");
+
+    const syntaxDark = document.getElementById("syntax-dark-theme");
+    const syntaxLight = document.getElementById("syntax-light-theme");
+
+    if (theme === "light") {
+      if (syntaxDark) syntaxDark.disabled = true;
+      if (syntaxLight) syntaxLight.disabled = false;
+    } else {
+      if (syntaxDark) syntaxDark.disabled = false;
+      if (syntaxLight) syntaxLight.disabled = true;
+    }
+
+    
+    const observer = new MutationObserver(() => {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      if (currentTheme === "light") {
+        if (syntaxDark) syntaxDark.disabled = true;
+        if (syntaxLight) syntaxLight.disabled = false;
+      } else {
+        if (syntaxDark) syntaxDark.disabled = false;
+        if (syntaxLight) syntaxLight.disabled = true;
+      }
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+  })();
+</script>
+
+
+
+
+<link rel="stylesheet" href="/css/bundle.min.57d6410f7c0fffb9ad468070f9ab22cec491cb85b9a66f072e8cce12fe18b8e0.css">
+
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+
+<link rel="icon" type="image/png" href="/favicon.png">
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+
+
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+<link rel="manifest" href="/site.webmanifest">
+
+
+  <link rel="alternate" type="application/rss&#43;xml" href="http://localhost:1313/tags/reverse-engineering/index.xml">
+
+
+
+  
+
+
+
+
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <a href="#main-content" class="skip-to-main" aria-label="Skip to main content"
+      >Skip to main content</a
+    >
+    <header class="sticky-header">
+      <div class="header-container">
+        <nav class="header-nav" role="navigation" aria-label="Main navigation">
+  <div class="header-content">
+    <div class="header-logo">
+      <a href="/" class="logo-link" aria-label="Home - cyberwirez">
+        cyberwirez
+      </a>
+    </div>
+
+    
+    <button 
+      id="mobile-menu-toggle" 
+      class="mobile-menu-toggle" 
+      aria-label="Toggle menu" 
+      aria-expanded="false"
+      type="button">
+      <span class="hamburger-icon">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </span>
+    </button>
+
+    <div class="header-menu">
+      <ul class="menu-list">
+  
+    <li class="menu-item">
+      <a
+        href="/"
+        class="menu-link ">
+        Home
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/posts/"
+        class="menu-link ">
+        Posts
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/tags/"
+        class="menu-link ">
+        Tags
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/about/"
+        class="menu-link ">
+        About
+      </a>
+    </li>
+  
+</ul>
+
+
+      <button id="search-toggle" class="search-toggle" aria-label="Search" type="button">
+        <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+      </button>
+
+      
+
+
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" type="button">
+  <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+  </svg>
+  <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+  </svg>
+</button>
+
+    </div>
+  </div>
+</nav>
+
+      </div>
+      <div class="reading-progress-bar" aria-hidden="true"></div>
+    </header>
+
+    <main id="main-content" class="flex-1" role="main">
+      
+  <div class="tag-page">
+    <div class="tag-header">
+      <div class="tag-header-content">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="tag-icon"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+        </svg>
+        <h1 class="tag-title">Reverse-Engineering</h1>
+      </div>
+      <div class="tag-count">
+        1 post
+      </div>
+    </div>
+
+    
+    <div class="tag-posts-grouped">
+      
+        <div class="year-group">
+          
+          <div class="year-indicator">
+            <div class="year-circle">
+              <span class="year-text">2026</span>
+              <div class="year-glow"></div>
+            </div>
+            <div class="year-line"></div>
+          </div>
+
+          
+          <div class="year-posts">
+            
+              <div class="tag-post-card">
+                <a href="/posts/x86-assembly-function-parameters/" class="tag-post-link" aria-label="x86-64 Assembly: Function Parameters and Calling Conventions"></a>
+                <div class="tag-post-content">
+                  <div class="tag-post-header">
+                    <h3 class="tag-post-title">x86-64 Assembly: Function Parameters and Calling Conventions</h3>
+                    <time class="tag-post-date">5/26/26</time>
+                  </div>
+
+                  
+                    <div class="tag-post-summary">
+                      Originally published by grit8086
+A deep walkthrough of how x86-64 functions pass arguments, manage the stack, and follow calling conventions …
+                    </div>
+                  
+
+                  
+                    <div class="tag-post-tags">
+                      
+                        
+                        <a
+                          href="/tags/reverse-engineering"
+                          class="tag-chip "
+                          onclick="event.stopPropagation();">
+                          reverse-engineering
+                        </a>
+                      
+                        
+                        <a
+                          href="/tags/assembly"
+                          class="tag-chip "
+                          onclick="event.stopPropagation();">
+                          assembly
+                        </a>
+                      
+                        
+                        <a
+                          href="/tags/x86-64"
+                          class="tag-chip "
+                          onclick="event.stopPropagation();">
+                          x86-64
+                        </a>
+                      
+                        
+                        <a
+                          href="/tags/research"
+                          class="tag-chip "
+                          onclick="event.stopPropagation();">
+                          research
+                        </a>
+                      
+                    </div>
+                  
+
+
+                  <div class="tag-post-read-more">
+                    <span class="read-more-text">Read more</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="read-more-icon"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+    </div>
+
+    
+    <div class="tag-nav-links">
+      <a href="/tags" class="tag-nav-link">All Tags</a>
+      <a href="/" class="tag-nav-link">Back to Home</a>
+    </div>
+  </div>
+
+    </main>
+
+    <footer>
+      <footer class="site-footer">
+  <div class="footer-content">
+    <p class="footer-text">
+      &copy;
+      
+      2026
+      
+      cyberwirez.
+      
+        © 2026 cyberwirez. Built with Hugo and Mana theme
+      
+    </p>
+    
+      <div class="footer-social">
+        <div class="social-links">
+  
+    <a
+      href="https://github.com/cyberwirez-ph"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="social-link"
+      aria-label="GitHub">
+      <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          fill-rule="evenodd"
+          d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+          clip-rule="evenodd"></path>
+      </svg>
+    </a>
+  
+
+  
+
+  
+
+  
+
+  
+    <a href="mailto:cyberwirez.sec@gmail.com" class="social-link" aria-label="Email">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+      </svg>
+    </a>
+  
+  
+</div>
+
+      </div>
+    
+  </div>
+</footer>
+
+    </footer>
+
+    <div id="search-modal" class="search-modal" aria-hidden="true" role="dialog" aria-label="Search" data-no-results="No results found">
+  <div class="search-modal-backdrop" id="search-modal-backdrop"></div>
+  <div class="search-modal-container">
+    <div class="search-input-wrapper">
+      <svg class="search-input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+      </svg>
+      <input
+        type="search"
+        id="search-input"
+        class="search-input"
+        placeholder="Search..."
+        autocomplete="off"
+        aria-label="Search">
+      <button class="search-input-clear" id="search-input-clear" aria-label="Clear search">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+        </svg>
+      </button>
+      <button class="search-modal-close" id="search-modal-close" aria-label="Close search">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div id="search-results" class="search-results"></div>
+  </div>
+</div>
+
+    
+<div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu-overlay"></div>
+  <div class="mobile-menu-content">
+    <div class="mobile-menu-header">
+      <span class="mobile-menu-title">Menu</span>
+      <button
+        id="mobile-menu-close"
+        class="mobile-menu-close"
+        aria-label="Close menu"
+        type="button">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <nav class="mobile-menu-nav" role="navigation" aria-label="Mobile navigation">
+      <ul class="menu-list">
+  
+    <li class="menu-item">
+      <a
+        href="/"
+        class="menu-link ">
+        Home
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/posts/"
+        class="menu-link ">
+        Posts
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/tags/"
+        class="menu-link ">
+        Tags
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/about/"
+        class="menu-link ">
+        About
+      </a>
+    </li>
+  
+</ul>
+
+    </nav>
+    <div class="mobile-menu-footer">
+      <button id="mobile-search-toggle" class="mobile-search-toggle" aria-label="Search" type="button">
+        <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+        <span>Search</span>
+      </button>
+      
+
+      <button class="theme-toggle" aria-label="Toggle theme" type="button">
+        <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+        </svg>
+        <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+    
+
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top" type="button">
+  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+  </svg>
+</button>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.137938305a4255a5ce0531471a42b4448c4adb05e04052a70000719c0704d082.js" defer></script>
+
+  </body>
+</html>
