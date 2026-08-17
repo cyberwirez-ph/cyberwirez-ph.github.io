@@ -3,6 +3,9 @@ languageCode = "en-us"
 title = "cyberwirez"
 theme = "mana"
 
+# Tag/taxonomy browsing pages removed per team request.
+disableKinds = ["taxonomy", "term"]
+
 [pagination]
   pageSize = 10
 
@@ -48,13 +51,13 @@ theme = "mana"
   weight = 10
 
 [[menus.main]]
-  name = "Posts"
-  pageRef = "/posts"
-  weight = 20
+  name = "Articles"
+  pageRef = "/articles"
+  weight = 25
 
 [[menus.main]]
-  name = "Tags"
-  pageRef = "/tags"
+  name = "Achievements"
+  pageRef = "/achievements"
   weight = 30
 
 [[menus.main]]

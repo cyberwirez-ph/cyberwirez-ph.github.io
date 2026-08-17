@@ -1,0 +1,288 @@
+/* Custom sections: Team, Achievements, Contact, Articles/Events cards */
+
+.section-heading {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  color: var(--text-primary);
+  margin-top: var(--spacing-2xl);
+  margin-bottom: var(--spacing-xs);
+}
+
+.section-subheading {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* ---------- Team ---------- */
+
+.team-section {
+  margin-top: var(--spacing-2xl);
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid var(--border-color);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg) var(--spacing-md);
+  background-color: var(--bg-secondary);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-base);
+  text-align: center;
+}
+
+.team-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+}
+
+.team-avatar {
+  width: 72px;
+  height: 72px;
+}
+
+.team-avatar-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.team-name {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--accent-light-purple);
+}
+
+.team-name::before {
+  content: "@";
+  color: var(--text-muted);
+}
+
+/* ---------- Achievements ---------- */
+
+.achievements-section {
+  margin-top: var(--spacing-xl);
+}
+
+.achievements-highlights {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.achievement-highlight {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+}
+
+.achievement-icon {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  color: var(--accent-primary);
+}
+
+.achievement-title {
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  margin-bottom: 0.15rem;
+}
+
+.achievement-description {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.cert-heading {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.cert-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: var(--spacing-lg);
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.cert-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+  text-align: center;
+}
+
+.cert-icon {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-base);
+}
+
+.cert-badge:hover .cert-icon {
+  filter: drop-shadow(0 0 6px var(--accent-primary-rgba-05));
+}
+
+.cert-icon svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.cert-icon-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background-color: #ffffff;
+}
+
+.cert-acronym {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--accent-light-purple);
+  text-align: center;
+  padding: 0 4px;
+  line-height: 1.1;
+}
+
+.cert-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* ---------- Contact ---------- */
+
+.contact-section {
+  margin-top: var(--spacing-2xl);
+  padding-top: var(--spacing-xl);
+  padding-bottom: var(--spacing-xl);
+  border-top: 1px solid var(--border-color);
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  flex-wrap: wrap;
+  padding: var(--spacing-xl);
+  text-align: center;
+}
+
+.contact-email {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+.contact-email:hover {
+  color: var(--accent-light-purple);
+}
+
+.contact-icon {
+  width: var(--icon-md);
+  height: var(--icon-md);
+  color: var(--accent-primary);
+}
+
+.discord-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-mid-purple));
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
+}
+
+.discord-button:hover {
+  box-shadow: 0 0 16px var(--accent-primary-rgba-05);
+  transform: translateY(-1px);
+}
+
+.discord-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1024px) {
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .cert-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .achievements-highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .contact-card {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+
+  .cert-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

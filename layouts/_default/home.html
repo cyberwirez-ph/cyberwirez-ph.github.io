@@ -1,0 +1,70 @@
+{{ define "main" }}
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            {{ if site.Params.heroTitleLine1 }}
+              <span class="hero-title-line1">{{ site.Params.heroTitleLine1 }}</span>
+            {{ else }}
+              <span class="hero-title-line1">{{ site.Title }}</span>
+            {{ end }}
+            {{ if site.Params.heroTitleLine2 }}
+              <span class="hero-title-line2">{{ site.Params.heroTitleLine2 }}</span>
+            {{ end }}
+          </h1>
+          {{ if site.Params.description }}
+            <p class="hero-subtitle">&gt; {{ site.Params.description }}</p>
+          {{ else if .Description }}
+            <p class="hero-subtitle">&gt; {{ .Description }}</p>
+          {{ end }}
+          {{ if site.Params.social }}
+            <div class="hero-social">
+              {{ partial "social-links.html" . }}
+            </div>
+          {{ end }}
+        </div>
+        <div class="hero-image">
+          {{ $avatarUrl := site.Params.avatar.home.url | default site.Params.avatar.url }}
+          {{ $avatarAsset := site.Params.avatar.home.assetPath | default site.Params.avatar.assetPath }}
+          {{ $enableResize := site.Params.avatar.home.enableResize | default site.Params.avatar.enableResize | default false }}
+
+          {{ if $avatarUrl }}
+            <img src="{{ $avatarUrl }}" alt="{{ site.Title }}" class="hero-logo">
+          {{ else if $avatarAsset }}
+            {{ with resources.Get $avatarAsset }}
+              {{ if $enableResize }}
+                {{ with .Resize "512x" }}
+                  <img src="{{ .RelPermalink }}" alt="{{ site.Title }}" class="hero-logo">
+                {{ end }}
+              {{ else }}
+                <img src="{{ .RelPermalink }}" alt="{{ site.Title }}" class="hero-logo">
+              {{ end }}
+            {{ end }}
+          {{ else }}
+            <img
+              src="/favicon/logo-transparent/android-chrome-512x512.png"
+              alt="{{ site.Title }}"
+              class="hero-logo">
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="home-container">
+    {{ $articles := where site.RegularPages "Type" "articles" }}
+    {{ if $articles }}
+      <section class="posts-section">
+        <h2 class="posts-title">Latest Articles</h2>
+        <div class="posts-list">
+          {{ range $articles.ByDate.Reverse | first 5 }}
+            {{ partial "post-card.html" (dict "page" . "limit" 0) }}
+          {{ end }}
+        </div>
+        <a href="{{ "/articles/" | relLangURL }}" class="tag-nav-link">View all articles →</a>
+      </section>
+    {{ end }}
+  </div>
+{{ end }}

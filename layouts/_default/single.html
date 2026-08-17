@@ -1,0 +1,49 @@
+{{ define "main" }}
+  <div class="single-post-wrapper">
+    <article class="single-post">
+      {{ partial "post-image-single.html" . }}
+
+
+      <header class="post-header">
+        {{ partial "breadcrumb.html" . }}
+        <h1 class="post-title-main">{{ .Title }}</h1>
+
+        {{ if .Description }}
+          <p class="post-description-main">{{ .Description }}</p>
+        {{ end }}
+
+        {{ partial "post-meta.html" . }}
+      </header>
+
+      <div class="post-content-main">
+        {{ .Content }}
+      </div>
+
+      {{ partial "related-posts.html" . }}
+
+      <nav class="post-navigation" aria-label="Post navigation">
+        {{ with .PrevInSection }}
+          <a
+            href="{{ .RelPermalink }}"
+            class="nav-link nav-prev"
+            aria-label="Previous post: {{ .Title }}">
+            <span class="nav-label">{{ i18n "navPrev" }}</span>
+            <span class="nav-title">{{ .Title }}</span>
+          </a>
+        {{ end }}
+
+        {{ with .NextInSection }}
+          <a
+            href="{{ .RelPermalink }}"
+            class="nav-link nav-next"
+            aria-label="Next post: {{ .Title }}">
+            <span class="nav-label">{{ i18n "navNext" }}</span>
+            <span class="nav-title">{{ .Title }}</span>
+          </a>
+        {{ end }}
+      </nav>
+    </article>
+
+    {{ partial "toc.html" . }}
+  </div>
+{{ end }}

@@ -1,0 +1,54 @@
+# Team roster shown in the About page "mods" grid.
+# gradientFrom/gradientTo: badge background gradient (site purple palette)
+# accent: color used for the accessory / highlight detail
+# accessory: which little decoration the avatar gets (see layouts/partials/team-avatar.html)
+- name: drewbyte
+  gradientFrom: "#4c1d95"
+  gradientTo: "#b063e0"
+  accent: "#dbabff"
+  accessory: spikes
+- name: wa
+  gradientFrom: "#1e1b4b"
+  gradientTo: "#c485f6"
+  accent: "#f1f5f9"
+  accessory: visor
+- name: carlomagno
+  gradientFrom: "#3b0764"
+  gradientTo: "#dbabff"
+  accent: "#00ffff"
+  accessory: crown
+- name: dean
+  gradientFrom: "#0f172a"
+  gradientTo: "#b063e0"
+  accent: "#00ffff"
+  accessory: headphones
+- name: james
+  gradientFrom: "#4c1d95"
+  gradientTo: "#c485f6"
+  accent: "#f1f5f9"
+  accessory: cat-ears
+- name: grit
+  gradientFrom: "#1e1b4b"
+  gradientTo: "#b063e0"
+  accent: "#00ffff"
+  accessory: bolt
+- name: seif
+  gradientFrom: "#3b0764"
+  gradientTo: "#c485f6"
+  accent: "#f1f5f9"
+  accessory: mustache
+- name: yensyd
+  gradientFrom: "#0f172a"
+  gradientTo: "#dbabff"
+  accent: "#00ffff"
+  accessory: bow
+- name: arvin
+  gradientFrom: "#4c1d95"
+  gradientTo: "#00ffff"
+  accent: "#f1f5f9"
+  accessory: antenna
+- name: angelo
+  gradientFrom: "#1e1b4b"
+  gradientTo: "#dbabff"
+  accent: "#f1f5f9"
+  accessory: halo

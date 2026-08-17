@@ -1,0 +1,81 @@
+{{ define "main" }}
+  {{ $allPosts := where site.RegularPages "Type" "posts" }}
+  {{ $yearMonths := slice }}
+  {{ range $allPosts }}
+    {{ $yearMonth := .Date.Format "2006-01" }}
+    {{ $yearMonths = $yearMonths | append $yearMonth }}
+  {{ end }}
+  {{ $uniqueYearMonths := $yearMonths | uniq | sort }}
+
+
+  <div class="list-container">
+    <header class="list-header">
+      <h1 class="list-title">
+        <span class="list-title-line2">{{ i18n "posts" | upper }}</span>
+      </h1>
+      {{ if .Description }}
+        <p class="list-description">{{ .Description }}</p>
+      {{ end }}
+      {{ partial "list-count.html" . }}
+    </header>
+
+    <!-- Filter Controls -->
+    <div class="filter-accordion">
+      <button
+        class="filter-toggle-btn"
+        id="filter-toggle-btn"
+        aria-expanded="false"
+        aria-label="{{ i18n "filters" }}"
+        aria-controls="posts-filter-content">
+        <span class="filter-toggle-text">{{ i18n "filters" }}</span>
+        <svg
+          class="filter-toggle-icon"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div class="posts-filter" id="posts-filter-content">
+        <div class="filter-group">
+          <label for="filter-year-month" class="filter-label">{{ i18n "yearMonth" }}</label>
+          <select
+            id="filter-year-month"
+            class="filter-select"
+            aria-label="{{ i18n "yearMonth" }}">
+            <option value="">{{ i18n "allDates" }}</option>
+            {{ range $uniqueYearMonths }}
+              {{ $t := (printf "%s-01" .) | time.AsTime }}
+              <option value="{{ . }}">{{ $t | time.Format ":date_long" }}</option>
+            {{ end }}
+          </select>
+        </div>
+
+        <button id="clear-filters" class="filter-clear-btn" aria-label="{{ i18n "clearFilters" }}">
+          {{ i18n "clearFilters" }}
+        </button>
+      </div>
+    </div>
+
+    <div class="posts-list" id="posts-container">
+      {{ range .Paginator.Pages }}
+        {{ partial "post-card.html" (dict
+          "page" .
+          "limit" 3
+          "dataYearMonth" (.Date.Format "2006-01"))
+        }}
+      {{ end }}
+    </div>
+
+    <!-- Pagination -->
+    {{ partial "pagination.html" . }}
+
+    <!-- Navigation links -->
+    {{ partial "back-to-home.html" . }}
+  </div>
+{{ end }}

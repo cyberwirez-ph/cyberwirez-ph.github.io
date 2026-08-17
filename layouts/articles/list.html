@@ -1,0 +1,20 @@
+{{ define "main" }}
+  <div class="list-container">
+    <header class="list-header">
+      <h1 class="list-title">
+        <span class="list-title-line2">{{ .Title | upper }}</span>
+      </h1>
+      {{ if .Content }}
+        <div class="list-description">{{ .Content }}</div>
+      {{ end }}
+    </header>
+
+    <div class="posts-list">
+      {{ range .Pages.ByDate.Reverse }}
+        {{ partial "post-card.html" (dict "page" . "limit" 0) }}
+      {{ end }}
+    </div>
+
+    {{ partial "back-to-home.html" . }}
+  </div>
+{{ end }}

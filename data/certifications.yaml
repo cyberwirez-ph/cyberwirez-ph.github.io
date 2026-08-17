@@ -1,0 +1,34 @@
+# Certification badges shown on the Achievements page.
+# logo: path under static/ for a real official badge image (leave blank for a placeholder acronym badge).
+- acronym: CWES
+  logo: "/images/certs/cwes.png"
+- acronym: GCDP
+  logo: "/images/certs/gcdp.png"
+- acronym: CRTO
+  logo: "/images/certs/crto.jpg"
+- acronym: CDSA
+  logo: "/images/certs/cdsa.png"
+- acronym: CPTS
+  logo: "/images/certs/cpts-new.webp"
+- acronym: SC-200
+  logo: "/images/certs/sc-200.webp"
+- acronym: "CySA+"
+  logo: "/images/certs/cysa-plus.webp"
+- acronym: eCDFP
+  logo: "/images/certs/ecdfp.svg"
+- acronym: eCIR
+  logo: "/images/certs/ecir.svg"
+- acronym: eCTHPv2
+  logo: "/images/certs/ecthpv2.svg"
+- acronym: eJPT
+  logo: "/images/certs/ejpt.png"
+- acronym: PWPA
+  logo: "/images/certs/pwpa.png"
+- acronym: CJDE
+  logo: "/images/certs/cjde.png"
+- acronym: CCNA
+  logo: "/images/certs/ccna.jpg"
+- acronym: BTL1
+  logo: "/images/certs/btl1.png"
+- acronym: PSAA
+  logo: "/images/certs/psaa.webp"

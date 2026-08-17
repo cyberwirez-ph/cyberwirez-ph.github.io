@@ -1,0 +1,15 @@
+<section class="team-section">
+  <h2 class="section-heading">The Mods</h2>
+  <p class="section-subheading">The people who keep cyberwirez running.</p>
+
+  <div class="team-grid">
+    {{ range hugo.Data.team }}
+      <div class="team-card">
+        <div class="team-avatar">
+          {{ partial "team-avatar.html" . }}
+        </div>
+        <span class="team-name">{{ .name }}</span>
+      </div>
+    {{ end }}
+  </div>
+</section>

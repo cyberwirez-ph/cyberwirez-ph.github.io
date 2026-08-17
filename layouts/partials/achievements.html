@@ -1,0 +1,37 @@
+<section class="achievements-section">
+  <div class="achievements-highlights">
+    {{ range hugo.Data.achievements }}
+      <div class="achievement-highlight card-base">
+        <svg class="achievement-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12M15.5 8.5a3.5 3.5 0 11-7 0 3.5 3.5 0 017 0z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 1v2m8.66 2.34l-1.42 1.42M23 12h-2M4 12H2M6.76 6.76L5.34 5.34"></path>
+        </svg>
+        <div>
+          <h3 class="achievement-title">{{ .title }}</h3>
+          <p class="achievement-description">{{ .description }}</p>
+        </div>
+      </div>
+    {{ end }}
+  </div>
+
+  <h2 class="cert-heading">Certifications Earned by Our Members</h2>
+  <p class="cert-note">Official certifying-body logos.</p>
+
+  <div class="cert-grid">
+    {{ range hugo.Data.certifications }}
+      <div class="cert-badge">
+        <div class="cert-icon" aria-hidden="true">
+          {{ if .logo }}
+            <img src="{{ .logo }}" alt="{{ .acronym }} logo" class="cert-icon-logo">
+          {{ else }}
+            <svg viewBox="0 0 64 64" fill="none">
+              <polygon points="32,3 59,16 59,40 32,61 5,40 5,16" fill="rgba(176,99,224,0.12)" stroke="var(--accent-primary)" stroke-width="2"></polygon>
+            </svg>
+            <span class="cert-acronym">{{ .acronym }}</span>
+          {{ end }}
+        </div>
+        <span class="cert-label">{{ .acronym }}</span>
+      </div>
+    {{ end }}
+  </div>
+</section>

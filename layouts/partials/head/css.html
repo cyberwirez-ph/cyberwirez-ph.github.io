@@ -1,0 +1,39 @@
+{{ $themeCss := resources.Get "css/theme.css" | minify | fingerprint }}
+{{- if site.Params.enableIntegrity }}
+<link rel="stylesheet" href="{{ $themeCss.RelPermalink }}" integrity="{{ $themeCss.Data.Integrity }}">
+{{- else }}
+<link rel="stylesheet" href="{{ $themeCss.RelPermalink }}">
+{{- end }}
+
+{{ partial "head/syntax-highlight.html" . }}
+
+{{ $cssFiles := slice
+  (resources.Get "css/base.css")
+  (resources.Get "css/main.css")
+  (resources.Get "css/header.css")
+  (resources.Get "css/hero.css")
+  (resources.Get "css/posts.css")
+  (resources.Get "css/single-post.css")
+  (resources.Get "css/filters.css")
+  (resources.Get "css/tags.css")
+  (resources.Get "css/archive.css")
+  (resources.Get "css/about.css")
+  (resources.Get "css/footer.css")
+  (resources.Get "css/scroll-to-top.css")
+  (resources.Get "css/reading-progress.css")
+  (resources.Get "css/code-blocks.css")
+  (resources.Get "css/blockquotes.css")
+  (resources.Get "css/pagination.css")
+  (resources.Get "css/search.css")
+  (resources.Get "css/language-switcher.css")
+  (resources.Get "css/rtl.css")
+  (resources.Get "css/animations.css")
+  (resources.Get "css/custom.css")
+  (resources.Get "css/responsive.css")
+}}
+{{ $bundledCss := $cssFiles | resources.Concat "css/bundle.css" | minify | fingerprint }}
+{{- if site.Params.enableIntegrity }}
+<link rel="stylesheet" href="{{ $bundledCss.RelPermalink }}" integrity="{{ $bundledCss.Data.Integrity }}">
+{{- else }}
+<link rel="stylesheet" href="{{ $bundledCss.RelPermalink }}">
+{{- end }}

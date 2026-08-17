@@ -20,12 +20,4 @@ We crack it. We own it.
 
 ## Join Us
 
-Are you a Filipino cybersecurity enthusiast looking for a community to learn, compete, and grow with? We'd love to have you.
-
-Join our Discord server and introduce yourself — whether you're a beginner or a seasoned practitioner, there's a place for you here.
-
-[Join our Discord →](https://discord.gg/ACr8cmdZPH)
-
-## Contact
-
-Reach us at [cyberwirez.sec@gmail.com](mailto:cyberwirez.sec@gmail.com) or find us on [GitHub](https://github.com/cyberwirez-ph).
+Are you a Filipino cybersecurity enthusiast looking for a community to learn, compete, and grow with? We'd love to have you — whether you're a beginner or a seasoned practitioner, there's a place for you here. Say hi in the Contact section below.
