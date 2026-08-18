@@ -1,7 +1,4 @@
 <section class="team-section">
-  <h2 class="section-heading">The Mods</h2>
-  <p class="section-subheading">The people who keep cyberwirez running.</p>
-
   <div class="team-grid">
     {{ range hugo.Data.team }}
       <div class="team-card">
@@ -9,6 +6,8 @@
           {{ partial "team-avatar.html" . }}
         </div>
         <span class="team-name">{{ .name }}</span>
+        {{ if .role }}<span class="team-role">{{ .role }}</span>{{ end }}
+        {{ if .tagline }}<span class="team-tagline">{{ .tagline }}</span>{{ end }}
       </div>
     {{ end }}
   </div>

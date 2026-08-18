@@ -16,9 +16,7 @@
 /* ---------- Team ---------- */
 
 .team-section {
-  margin-top: var(--spacing-2xl);
-  padding-top: var(--spacing-xl);
-  border-top: 1px solid var(--border-color);
+  margin-top: var(--spacing-xl);
 }
 
 .team-grid {
@@ -62,11 +60,18 @@
 .team-name {
   font-family: var(--font-mono);
   font-size: 0.95rem;
+  font-weight: 700;
   color: var(--accent-light-purple);
 }
 
-.team-name::before {
-  content: "@";
+.team-role {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.team-tagline {
+  font-size: 0.78rem;
+  font-style: italic;
   color: var(--text-muted);
 }
 
@@ -180,6 +185,52 @@
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--text-secondary);
+}
+
+/* ---------- Articles (compact cards) ---------- */
+
+.posts-list {
+  gap: var(--spacing-md);
+}
+
+.post-card {
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+}
+
+.post-image {
+  width: 140px;
+  height: 100px;
+}
+
+.post-content {
+  gap: 0.35rem;
+}
+
+.post-title {
+  font-size: 1.15rem;
+}
+
+.post-description {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.post-meta-inline {
+  font-size: 0.8rem;
+}
+
+.post-tags {
+  margin-top: 0.25rem;
+}
+
+.post-tag {
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
 }
 
 /* ---------- Contact ---------- */

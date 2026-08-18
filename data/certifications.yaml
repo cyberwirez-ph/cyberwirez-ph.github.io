@@ -32,3 +32,27 @@
   logo: "/images/certs/btl1.png"
 - acronym: PSAA
   logo: "/images/certs/psaa.webp"
+- acronym: CCDL2
+  logo: "/images/certs/ccdl2.png"
+- acronym: CSIE
+  logo: "/images/certs/csie.png"
+- acronym: SecurityX
+  logo: "/images/certs/securityx.png"
+- acronym: PWFA
+  logo: "/images/certs/pwfa.jpg"
+- acronym: CNSP
+  logo: "/images/certs/cnsp.webp"
+- acronym: "PenTest+"
+  logo: "/images/certs/pentest-plus.png"
+- acronym: PT1
+  logo: "/images/certs/pt1.png"
+- acronym: SAL1
+  logo: "/images/certs/sal1.png"
+- acronym: SC-900
+  logo: "/images/certs/sc-900.png"
+- acronym: PJPT
+  logo: "/images/certs/pjpt.webp"
+- acronym: ICCA
+  logo: "/images/certs/icca.webp"
+- acronym: CSAP
+  logo: "/images/certs/csap.png"

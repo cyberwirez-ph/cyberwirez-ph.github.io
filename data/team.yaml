@@ -1,54 +1,89 @@
-# Team roster shown in the About page "mods" grid.
+# Team roster shown on the Moderators page.
+# role: short job title. tagline: short flavor description.
 # gradientFrom/gradientTo: badge background gradient (site purple palette)
 # accent: color used for the accessory / highlight detail
 # accessory: which little decoration the avatar gets (see layouts/partials/team-avatar.html)
 - name: drewbyte
+  role: Penetration Tester
+  tagline: love asking for tips
   gradientFrom: "#4c1d95"
   gradientTo: "#b063e0"
   accent: "#dbabff"
   accessory: spikes
 - name: wa
+  role: Incident Response
+  tagline: ctf lover
   gradientFrom: "#1e1b4b"
   gradientTo: "#c485f6"
   accent: "#f1f5f9"
   accessory: visor
 - name: carlomagno
+  role: Penetration Tester
+  tagline: hobbymaxxing
   gradientFrom: "#3b0764"
   gradientTo: "#dbabff"
   accent: "#00ffff"
   accessory: crown
 - name: dean
+  role: Penetration Tester
+  tagline: mommy hunter
   gradientFrom: "#0f172a"
   gradientTo: "#b063e0"
   accent: "#00ffff"
   accessory: headphones
 - name: james
+  role: Penetration Tester
+  tagline: ragebaiter
   gradientFrom: "#4c1d95"
   gradientTo: "#c485f6"
   accent: "#f1f5f9"
   accessory: cat-ears
 - name: grit
+  role: Penetration Tester
+  tagline: locked in
   gradientFrom: "#1e1b4b"
   gradientTo: "#b063e0"
   accent: "#00ffff"
   accessory: bolt
 - name: seif
+  role: Incident Response
+  tagline: calm guy
   gradientFrom: "#3b0764"
   gradientTo: "#c485f6"
   accent: "#f1f5f9"
   accessory: mustache
-- name: yensyd
+- name: syd
+  role: Penetration Tester
+  tagline: secret weapon
   gradientFrom: "#0f172a"
   gradientTo: "#dbabff"
   accent: "#00ffff"
   accessory: bow
-- name: arvin
+- name: ghostwirez
+  role: Penetration Tester
+  tagline: founder
   gradientFrom: "#4c1d95"
   gradientTo: "#00ffff"
   accent: "#f1f5f9"
   accessory: antenna
-- name: angelo
+- name: hellwind
+  role: Penetration Tester
+  tagline: love web pen
   gradientFrom: "#1e1b4b"
   gradientTo: "#dbabff"
   accent: "#f1f5f9"
   accessory: halo
+- name: zhi
+  role: Penetration Tester
+  tagline: ctf lover
+  gradientFrom: "#3b0764"
+  gradientTo: "#b063e0"
+  accent: "#dbabff"
+  accessory: spikes
+- name: ranilo
+  role: System Administrator
+  tagline: student
+  gradientFrom: "#0f172a"
+  gradientTo: "#c485f6"
+  accent: "#f1f5f9"
+  accessory: headphones

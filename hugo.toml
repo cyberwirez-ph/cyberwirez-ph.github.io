@@ -61,6 +61,11 @@ disableKinds = ["taxonomy", "term"]
   weight = 30
 
 [[menus.main]]
+  name = "Moderators"
+  pageRef = "/moderators"
+  weight = 35
+
+[[menus.main]]
   name = "About"
   pageRef = "/about"
   weight = 40
