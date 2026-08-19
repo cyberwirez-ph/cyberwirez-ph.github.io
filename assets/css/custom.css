@@ -187,6 +187,78 @@
   color: var(--text-secondary);
 }
 
+/* ---------- Single article: tighter, more readable body ---------- */
+
+.post-title-main {
+  font-size: 2rem;
+}
+
+.post-description-main {
+  font-size: 1.05rem;
+}
+
+.post-content-main {
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.post-content-main h2 {
+  font-size: 1.5rem;
+}
+
+.post-content-main h3 {
+  font-size: 1.25rem;
+}
+
+/* Code blocks had zero inner padding, making them look cramped/unstyled */
+.post-content-main pre.chroma,
+.post-content-main .chroma {
+  padding: 1rem 1.25rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  border-radius: 0.5rem;
+}
+
+/* Code block wrapper needs breathing room from surrounding paragraphs */
+.post-content-main .code-block-wrapper {
+  margin: var(--spacing-lg) 0;
+}
+
+/* Inline code (outside <pre>) */
+.post-content-main :not(pre) > code {
+  padding: 0.15em 0.4em;
+  border-radius: 0.25rem;
+  background-color: var(--bg-tertiary);
+  font-size: 0.85em;
+}
+
+/* Images embedded directly in article body (plain markdown ![]()) had
+   zero margin, so they butted straight into the surrounding text */
+.post-content-main img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: var(--spacing-lg) auto;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+}
+
+@media (max-width: 768px) {
+  .post-content-main {
+    font-size: 0.95rem;
+  }
+
+  .post-content-main pre.chroma,
+  .post-content-main .chroma {
+    padding: 0.85rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .post-content-main img {
+    margin: var(--spacing-md) auto;
+  }
+}
+
 /* ---------- Articles (compact cards) ---------- */
 
 .posts-list {

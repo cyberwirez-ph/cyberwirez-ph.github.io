@@ -14,7 +14,7 @@ disableKinds = ["taxonomy", "term"]
 
 [params]
   description = "A Philippine Cybersecurity Community"
-  footerText = "© 2026 cyberwirez. Built with Hugo and Mana theme"
+  footerText = "Built with Hugo and Mana theme"
   heroTitleLine1 = "cyberwirez"
 
   [params.avatar]
