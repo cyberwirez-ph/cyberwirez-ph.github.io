@@ -12,7 +12,7 @@
   accessory: spikes
 - name: wa
   role: Incident Response
-  tagline: ctf lover
+  tagline: pokemon lover
   gradientFrom: "#1e1b4b"
   gradientTo: "#c485f6"
   accent: "#f1f5f9"
@@ -26,7 +26,7 @@
   accessory: crown
 - name: dean
   role: Penetration Tester
-  tagline: mommy hunter
+  tagline: chill guy
   gradientFrom: "#0f172a"
   gradientTo: "#b063e0"
   accent: "#00ffff"
