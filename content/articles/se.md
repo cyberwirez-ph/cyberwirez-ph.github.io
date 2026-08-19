@@ -44,11 +44,11 @@ PORT     STATE SERVICE       VERSION
 
 I set up the Cobalt Strike listener and connected via RDP. I then used the command below to execute the DLL from the command prompt.
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv1.png)
+![image](/images/articles/se/sliv1.png)
 
 I now have access on the target.
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv2.png)
+![image](/images/articles/se/sliv2.png)
 
 We need to perform enumeration and reconnaissance using BloodHound. For this, SharpHound must be installed as the data collector. I downloaded SharpHound using the following command.
 
@@ -79,15 +79,15 @@ Saving to: ‘/home/kali/SharpHound.exe’
 
 After that I upload it to the victim.
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv3.png)
+![image](/images/articles/se/sliv3.png)
 
 After a few minutes, the data collection was completed.
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv4.png)
+![image](/images/articles/se/sliv4.png)
 
 I then downloaded it.
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv5.png)
+![image](/images/articles/se/sliv5.png)
 
 Now for the setup of the bloodhound I use the command below
 
@@ -106,15 +106,15 @@ docker build -t bloodhound .
 ```
  
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv6.png)
+![image](/images/articles/se/sliv6.png)
 
 Using the ForceChangePassword privilege, I plan to exploit it later with BloodyAD to change the password. However, I first need to establish access from my Kali machine to the target in order to use BloodyAD. I then pinged the domain controller (DC) to identify its IP address.
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv7.png)
+![image](/images/articles/se/sliv7.png)
 
 I then started a proxy to enable the use of BloodyAD.
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv8.png)
+![image](/images/articles/se/sliv8.png)
 
 After that I logged in with this command in RDP
 
@@ -125,25 +125,25 @@ xfreerdp3 /v:10.129.229.225 /u:felipe /p:'Password123!' /dynamic-resolution /cer
 
 And we got the first flag!
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv9.png)
+![image](/images/articles/se/sliv9.png)
 
 I checked the Administrator account and confirmed that Felipe has access to the Administrator folder, where we obtained the second flag.
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv10.png)
+![image](/images/articles/se/sliv10.png)
 
 To gain access to the target, we will deploy a beacon and execute it with administrator privileges.
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv11.png)
+![image](/images/articles/se/sliv11.png)
 
 I then checked the Cobalt Strike application and confirmed that we now have access.
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv12.png)
+![image](/images/articles/se/sliv12.png)
 
 We just need to adjust the sleep time of the beacon.
 
 I found something interesting in the Automation folder under the Administrator user. It contained a file named _mssql_automation.sql_ , which included plaintext credentials.
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv13.png)
+![image](/images/articles/se/sliv13.png)
 
 ```text
 $server = "172.16.84.5"
@@ -154,23 +154,23 @@ $password = "D@tab3s_PRoj3ct0@"
 
 I logged in using these credentials with the help of ProxyChains and the `mssqlclient` tool from Impacket. Afterward, I enabled `xp_cmdshell` to execute commands remotely on the target.
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv14.png)
+![image](/images/articles/se/sliv14.png)
 
 Lets go back to the cobalt and follow the commands below.
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv15.png)
+![image](/images/articles/se/sliv15.png)
 
 After that setup a listener with TCP.
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv16.png)
+![image](/images/articles/se/sliv16.png)
 
 Ang generate the payload.
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv17.png)
+![image](/images/articles/se/sliv17.png)
 
 To verify find the dc02tcp_x64.exe beacon on your end.
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv18.png)
+![image](/images/articles/se/sliv18.png)
 
 Once you verified that you have the right beacon start a python server.
 
@@ -202,11 +202,11 @@ MSSQL Server:
 
 Now lets go back to the cobalt.
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv19.png)
+![image](/images/articles/se/sliv19.png)
 
 We have access on the target!
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv20.png)
+![image](/images/articles/se/sliv20.png)
 
 For privilege escalation I upload the GodPotato-Net4.exe to the target.
 
@@ -218,21 +218,21 @@ For privilege escalation I upload the GodPotato-Net4.exe to the target.
 
 Once it was uploaded, I attempted to use the pivot agent we have and executed it with GodPotato.
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv21.png)
+![image](/images/articles/se/sliv21.png)
 
 Once you have finished running the command `connect 172.16.84.5:5555`, you will have a high-integrity beacon on MSSQL.
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv22.png)
+![image](/images/articles/se/sliv22.png)
 
 I uploaded `mimikatz.exe` to the target.
 
 To attempt to forge a Diamond Ticket, we need the AES256_HMAC key, the SID of the Administrator account, and the RID of the group. To obtain this information, follow the commands below.
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv23.png)
+![image](/images/articles/se/sliv23.png)
 
 We now need to obtain the SID of the Administrator account.
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv24.png)
+![image](/images/articles/se/sliv24.png)
 
 And now I use all the information to forge a diamond ticket.
 
@@ -241,12 +241,12 @@ And now I use all the information to forge a diamond ticket.
 ```
  
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv25.png)
+![image](/images/articles/se/sliv25.png)
 
 After that, I pivoted using an SMB beacon via PsExec.
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv26.png)
+![image](/images/articles/se/sliv26.png)
 
 We now have access to DC01.
 
-![image](/images/articles/sliver-challenge-cobalt-strike/sliv27.png)
+![image](/images/articles/se/sliv27.png)

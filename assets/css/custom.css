@@ -259,6 +259,58 @@
   }
 }
 
+/* ---------- Article author byline (top + bottom) ---------- */
+
+.post-author {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.post-author-bottom {
+  margin-top: 0;
+}
+
+.post-author-avatar {
+  display: block;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.post-author-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.post-author-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.post-author-name {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent-light-purple);
+  text-decoration: none;
+}
+
+a.post-author-name:hover {
+  color: var(--accent-primary);
+}
+
+.post-author-role {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
 /* ---------- Articles (compact cards) ---------- */
 
 .posts-list {

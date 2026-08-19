@@ -1,0 +1,38 @@
+{{/*
+  Author byline for article pages. Looks up .Params.author against
+  data/team.yaml (site.Data.team) to pull a role + generated avatar.
+  Falls back to a plain name if the author isn't on the team roster.
+  Usage: {{ partial "post-author.html" (dict "page" . "position" "top") }}
+*/}}
+{{ $page := .page }}
+{{ $position := .position }}
+{{ $authorName := $page.Params.author }}
+{{ if $authorName }}
+  {{ $member := "" }}
+  {{ range hugo.Data.team }}
+    {{ if eq (lower .name) (lower $authorName) }}
+      {{ $member = . }}
+    {{ end }}
+  {{ end }}
+  <div class="post-author post-author-{{ $position }}">
+    {{ if $member }}
+      <a href="{{ "/moderators/" | relLangURL }}" class="post-author-avatar" aria-hidden="true">
+        {{ partial "team-avatar.html" $member }}
+      </a>
+      <div class="post-author-info">
+        <span class="post-author-label">
+          {{ if eq $position "bottom" }}Article by{{ else }}Written by{{ end }}
+        </span>
+        <a href="{{ "/moderators/" | relLangURL }}" class="post-author-name">{{ $member.name }}</a>
+        {{ if $member.role }}<span class="post-author-role">{{ $member.role }}</span>{{ end }}
+      </div>
+    {{ else }}
+      <div class="post-author-info">
+        <span class="post-author-label">
+          {{ if eq $position "bottom" }}Article by{{ else }}Written by{{ end }}
+        </span>
+        <span class="post-author-name">{{ $authorName }}</span>
+      </div>
+    {{ end }}
+  </div>
+{{ end }}

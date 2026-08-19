@@ -13,11 +13,16 @@
         {{ end }}
 
         {{ partial "post-meta.html" . }}
+        {{ partial "post-author.html" (dict "page" . "position" "top") }}
       </header>
 
       <div class="post-content-main">
         {{ .Content }}
       </div>
+
+      <footer class="post-footer">
+        {{ partial "post-author.html" (dict "page" . "position" "bottom") }}
+      </footer>
 
       {{ partial "related-posts.html" . }}
 
